@@ -1,0 +1,1795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SpotMyParty - Book Your Celebration Space</title>
+<meta name="description" content="Find and book premium celebration rooms, birthday halls and private party spaces with SpotMyParty.">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f7f8fc;
+  color:#111827;
+  line-height:1.5;
+}
+
+button,
+input,
+select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+/* NAVBAR */
+
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:100;
+  height:72px;
+  background:#fff;
+  border-bottom:1px solid #e5e7eb;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 7%;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:22px;
+  font-weight:800;
+}
+
+.logo-icon{
+  width:40px;
+  height:40px;
+  border-radius:12px;
+  background:linear-gradient(135deg,#6d5dfc,#ec4899);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:21px;
+  font-weight:900;
+}
+
+.logo span{
+  color:#111827;
+}
+
+.logo b{
+  color:#7c3aed;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+
+.nav-links a{
+  color:#4b5563;
+  font-size:14px;
+  font-weight:600;
+}
+
+.nav-links a:hover{
+  color:#7c3aed;
+}
+
+.nav-actions{
+  display:flex;
+  gap:10px;
+}
+
+.btn{
+  border:0;
+  border-radius:10px;
+  padding:11px 18px;
+  font-weight:700;
+}
+
+.btn-outline{
+  background:#fff;
+  border:1px solid #d1d5db;
+  color:#374151;
+}
+
+.btn-primary{
+  background:#6d5dfc;
+  color:#fff;
+}
+
+.btn-primary:hover{
+  background:#5848e8;
+}
+
+/* HERO */
+
+.hero{
+  min-height:610px;
+  padding:90px 7%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:50px;
+  background:linear-gradient(135deg,#fff 0%,#f4f1ff 50%,#fff0f8 100%);
+}
+
+.hero-content{
+  max-width:700px;
+}
+
+.eyebrow{
+  display:inline-block;
+  color:#7c3aed;
+  background:#ede9fe;
+  padding:7px 12px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:1px;
+  margin-bottom:18px;
+}
+
+.hero h1{
+  font-size:58px;
+  line-height:1.05;
+  letter-spacing:-2px;
+  margin-bottom:20px;
+}
+
+.gradient-text{
+  background:linear-gradient(90deg,#6d5dfc,#ec4899);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.hero p{
+  color:#6b7280;
+  font-size:18px;
+  max-width:620px;
+  margin-bottom:30px;
+}
+
+.search-box{
+  background:#fff;
+  padding:10px;
+  border-radius:16px;
+  box-shadow:0 15px 40px rgba(0,0,0,.1);
+  display:flex;
+  gap:8px;
+  max-width:680px;
+}
+
+.search-box input{
+  flex:1;
+  border:0;
+  outline:0;
+  padding:14px;
+  min-width:0;
+}
+
+.search-box select{
+  border:0;
+  outline:0;
+  padding:0 10px;
+  color:#4b5563;
+  background:#fff;
+}
+
+.search-box button{
+  padding:13px 24px;
+}
+
+.hero-card{
+  width:330px;
+  min-width:280px;
+  background:#fff;
+  border-radius:24px;
+  padding:20px;
+  box-shadow:0 25px 60px rgba(65,50,130,.18);
+  transform:rotate(2deg);
+}
+
+.hero-image{
+  height:230px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#312e81,#ec4899);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:65px;
+}
+
+.hero-card h3{
+  margin-top:15px;
+  font-size:20px;
+}
+
+.hero-card p{
+  margin:4px 0;
+  font-size:13px;
+}
+
+.price{
+  color:#7c3aed;
+  font-weight:800;
+}
+
+/* SECTIONS */
+
+.section{
+  padding:80px 7%;
+}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  margin-bottom:35px;
+}
+
+.section-head h2{
+  font-size:34px;
+  margin-bottom:6px;
+}
+
+.section-head p{
+  color:#6b7280;
+}
+
+.view-all{
+  color:#6d5dfc;
+  font-weight:700;
+  font-size:14px;
+}
+
+/* CATEGORIES */
+
+.categories{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:16px;
+}
+
+.category{
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:18px;
+  padding:25px 15px;
+  text-align:center;
+  transition:.2s;
+}
+
+.category:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+
+.category-icon{
+  width:55px;
+  height:55px;
+  margin:auto auto 12px;
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#f3f0ff;
+  font-size:26px;
+}
+
+.category h3{
+  font-size:15px;
+}
+
+.category p{
+  color:#9ca3af;
+  font-size:12px;
+}
+
+/* VENUES */
+
+.venue-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+
+.venue-card{
+  background:#fff;
+  border-radius:20px;
+  overflow:hidden;
+  border:1px solid #eee;
+  transition:.2s;
+}
+
+.venue-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 15px 35px rgba(0,0,0,.1);
+}
+
+.venue-image{
+  height:210px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:55px;
+  color:#fff;
+  position:relative;
+}
+
+.image-1{background:linear-gradient(135deg,#4f46e5,#9333ea);}
+.image-2{background:linear-gradient(135deg,#db2777,#f97316);}
+.image-3{background:linear-gradient(135deg,#0891b2,#2563eb);}
+.image-4{background:linear-gradient(135deg,#16a34a,#0f766e);}
+.image-5{background:linear-gradient(135deg,#ea580c,#dc2626);}
+.image-6{background:linear-gradient(135deg,#7c3aed,#be185d);}
+
+.badge{
+  position:absolute;
+  top:14px;
+  left:14px;
+  background:#fff;
+  color:#6d28d9;
+  padding:6px 9px;
+  border-radius:8px;
+  font-size:11px;
+  font-weight:800;
+}
+
+.wishlist{
+  position:absolute;
+  top:12px;
+  right:12px;
+  width:35px;
+  height:35px;
+  border:0;
+  border-radius:50%;
+  background:rgba(255,255,255,.9);
+}
+
+.venue-info{
+  padding:18px;
+}
+
+.venue-info h3{
+  font-size:18px;
+  margin-bottom:5px;
+}
+
+.location{
+  color:#6b7280;
+  font-size:13px;
+  margin-bottom:10px;
+}
+
+.rating{
+  font-size:13px;
+  margin-bottom:12px;
+}
+
+.rating strong{
+  color:#111827;
+}
+
+.venue-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.venue-price{
+  font-weight:800;
+  font-size:17px;
+}
+
+.venue-price small{
+  font-size:11px;
+  color:#9ca3af;
+  font-weight:400;
+}
+
+.book-btn{
+  background:#6d5dfc;
+  color:#fff;
+  border:0;
+  padding:9px 14px;
+  border-radius:9px;
+  font-weight:700;
+}
+
+/* HOW IT WORKS */
+
+.how{
+  background:#111827;
+  color:#fff;
+}
+
+.how .section-head p{
+  color:#9ca3af;
+}
+
+.steps{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.step{
+  padding:25px;
+  border:1px solid #374151;
+  border-radius:18px;
+  background:#1f2937;
+}
+
+.step-number{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:#6d5dfc;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  margin-bottom:18px;
+}
+
+.step h3{
+  margin-bottom:7px;
+}
+
+.step p{
+  color:#9ca3af;
+  font-size:14px;
+}
+
+/* OWNER */
+
+.owner{
+  margin:80px 7%;
+  padding:55px;
+  border-radius:28px;
+  background:linear-gradient(135deg,#6d5dfc,#ec4899);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
+}
+
+.owner h2{
+  font-size:35px;
+  margin-bottom:10px;
+}
+
+.owner p{
+  opacity:.9;
+  max-width:650px;
+}
+
+.owner .btn{
+  background:#fff;
+  color:#6d28d9;
+  white-space:nowrap;
+}
+
+/* FOOTER */
+
+footer{
+  background:#0b1020;
+  color:#fff;
+  padding:60px 7% 25px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:40px;
+  margin-bottom:45px;
+}
+
+.footer-brand p{
+  color:#9ca3af;
+  margin-top:15px;
+  max-width:330px;
+  font-size:14px;
+}
+
+footer h4{
+  margin-bottom:15px;
+}
+
+footer ul{
+  list-style:none;
+}
+
+footer li{
+  color:#9ca3af;
+  margin:9px 0;
+  font-size:13px;
+}
+
+.copyright{
+  border-top:1px solid #1f2937;
+  padding-top:20px;
+  color:#6b7280;
+  font-size:12px;
+  text-align:center;
+}
+
+/* MODAL */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:500;
+  padding:20px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  background:#fff;
+  width:100%;
+  max-width:500px;
+  max-height:90vh;
+  overflow:auto;
+  border-radius:22px;
+  padding:28px;
+  position:relative;
+}
+
+.close{
+  position:absolute;
+  right:18px;
+  top:15px;
+  border:0;
+  background:#f3f4f6;
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  font-size:20px;
+}
+
+.modal-box h2{
+  margin-bottom:7px;
+}
+
+.modal-box > p{
+  color:#6b7280;
+  font-size:14px;
+  margin-bottom:20px;
+}
+
+.form-group{
+  margin-bottom:15px;
+}
+
+.form-group label{
+  display:block;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+.form-group input,
+.form-group select{
+  width:100%;
+  border:1px solid #d1d5db;
+  border-radius:10px;
+  padding:12px;
+  outline:none;
+}
+
+.form-group input:focus,
+.form-group select:focus{
+  border-color:#7c3aed;
+}
+
+.full-btn{
+  width:100%;
+  margin-top:5px;
+}
+
+/* TOAST */
+
+.toast{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  background:#111827;
+  color:#fff;
+  padding:14px 20px;
+  border-radius:12px;
+  display:none;
+  z-index:1000;
+  box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+.toast.show{
+  display:block;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .navbar{
+    padding:0 5%;
+  }
+
+  .nav-links{
+    display:none;
+  }
+
+  .hero{
+    padding:65px 5%;
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .hero h1{
+    font-size:43px;
+  }
+
+  .hero p{
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .search-box{
+    flex-wrap:wrap;
+  }
+
+  .search-box input{
+    width:100%;
+    flex-basis:100%;
+  }
+
+  .search-box select{
+    flex:1;
+    padding:12px;
+  }
+
+  .hero-card{
+    width:100%;
+    max-width:330px;
+  }
+
+  .categories{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .venue-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .steps{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .footer-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:600px){
+
+  .navbar{
+    height:64px;
+  }
+
+  .logo{
+    font-size:18px;
+  }
+
+  .logo-icon{
+    width:35px;
+    height:35px;
+  }
+
+  .nav-actions .btn-outline{
+    display:none;
+  }
+
+  .hero{
+    min-height:auto;
+    padding:55px 5%;
+  }
+
+  .hero h1{
+    font-size:38px;
+  }
+
+  .hero p{
+    font-size:15px;
+  }
+
+  .search-box{
+    display:block;
+    padding:8px;
+  }
+
+  .search-box input,
+  .search-box select,
+  .search-box button{
+    width:100%;
+    margin-bottom:7px;
+  }
+
+  .search-box button{
+    margin-bottom:0;
+  }
+
+  .section{
+    padding:55px 5%;
+  }
+
+  .section-head{
+    display:block;
+  }
+
+  .section-head h2{
+    font-size:27px;
+  }
+
+  .view-all{
+    display:inline-block;
+    margin-top:10px;
+  }
+
+  .categories{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .venue-grid{
+    grid-template-columns:1fr;
+  }
+
+  .steps{
+    grid-template-columns:1fr;
+  }
+
+  .owner{
+    margin:40px 5%;
+    padding:35px 25px;
+    display:block;
+  }
+
+  .owner h2{
+    font-size:28px;
+  }
+
+  .owner .btn{
+    margin-top:20px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+  }
+
+  .footer-brand{
+    grid-column:1/-1;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+  <a href="#" class="logo">
+    <div class="logo-icon">S</div>
+    <span>SpotMy<b>Party</b></span>
+  </a>
+
+  <div class="nav-links">
+    <a href="#venues">Explore</a>
+    <a href="#categories">Categories</a>
+    <a href="#how">How it works</a>
+    <a href="#owner">List your space</a>
+  </div>
+
+  <div class="nav-actions">
+    <button class="btn btn-outline" onclick="openLogin()">Login</button>
+    <button class="btn btn-primary" onclick="openSignup()">Sign up</button>
+  </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="eyebrow">BOOK • CELEBRATE • MAKE MEMORIES</div>
+
+    <h1>
+      Find the perfect
+      <span class="gradient-text">place to party.</span>
+    </h1>
+
+    <p>
+      Discover premium private rooms, birthday halls, couple spaces
+      and party venues. Choose your space, book your slot and celebrate.
+    </p>
+
+    <div class="search-box">
+
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search for a venue, area or celebration..."
+      >
+
+      <select id="categorySelect">
+        <option value="all">All celebrations</option>
+        <option value="birthday">Birthday</option>
+        <option value="couple">Couples</option>
+        <option value="friends">Friends</option>
+        <option value="premium">Premium</option>
+      </select>
+
+      <button class="btn btn-primary" onclick="searchVenues()">
+        Search
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div class="hero-card">
+
+    <div class="hero-image">🎉</div>
+
+    <h3>Premium Celebration Room</h3>
+
+    <p>📍 Bengaluru</p>
+
+    <p class="price">From ₹999 / slot</p>
+
+  </div>
+
+</section>
+
+
+<!-- CATEGORIES -->
+
+<section class="section" id="categories">
+
+  <div class="section-head">
+
+    <div>
+      <h2>Celebrate your way</h2>
+      <p>Choose a space that matches your occasion.</p>
+    </div>
+
+  </div>
+
+
+  <div class="categories">
+
+    <div class="category" onclick="filterCategory('birthday')">
+      <div class="category-icon">🎂</div>
+      <h3>Birthday</h3>
+      <p>Birthday celebrations</p>
+    </div>
+
+    <div class="category" onclick="filterCategory('couple')">
+      <div class="category-icon">❤️</div>
+      <h3>Couples</h3>
+      <p>Private couple rooms</p>
+    </div>
+
+    <div class="category" onclick="filterCategory('friends')">
+      <div class="category-icon">🥳</div>
+      <h3>Friends</h3>
+      <p>Fun with your squad</p>
+    </div>
+
+    <div class="category" onclick="filterCategory('premium')">
+      <div class="category-icon">✨</div>
+      <h3>Premium</h3>
+      <p>Luxury experiences</p>
+    </div>
+
+    <div class="category" onclick="filterCategory('all')">
+      <div class="category-icon">🏠</div>
+      <h3>All Spaces</h3>
+      <p>Explore everything</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- VENUES -->
+
+<section class="section" id="venues">
+
+  <div class="section-head">
+
+    <div>
+      <h2>Popular celebration spaces</h2>
+      <p>Hand-picked spaces for your special moments.</p>
+    </div>
+
+    <a href="#venues" class="view-all">View all →</a>
+
+  </div>
+
+
+  <div class="venue-grid" id="venueGrid">
+
+    <div class="venue-card" data-category="birthday premium" data-name="Celebration Hub">
+
+      <div class="venue-image image-1">
+
+        <span class="badge">POPULAR</span>
+
+        <button class="wishlist" onclick="wishlist(event)">♡</button>
+
+        🎂
+
+      </div>
+
+      <div class="venue-info">
+
+        <h3>Celebration Hub</h3>
+
+        <div class="location">📍 Koramangala, Bengaluru</div>
+
+        <div class="rating">⭐ <strong>4.9</strong> · 128 reviews</div>
+
+        <div class="venue-bottom">
+
+          <div class="venue-price">
+            ₹999 <small>/ slot</small>
+          </div>
+
+          <button class="book-btn"
+            onclick="openBooking('Celebration Hub','₹999')">
+            Book
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="venue-card" data-category="couple premium" data-name="Love Lounge">
+
+      <div class="venue-image image-2">
+
+        <span class="badge">COUPLES</span>
+
+        <button class="wishlist" onclick="wishlist(event)">♡</button>
+
+        ❤️
+
+      </div>
+
+      <div class="venue-info">
+
+        <h3>Love Lounge</h3>
+
+        <div class="location">📍 Indiranagar, Bengaluru</div>
+
+        <div class="rating">⭐ <strong>4.8</strong> · 96 reviews</div>
+
+        <div class="venue-bottom">
+
+          <div class="venue-price">
+            ₹1,299 <small>/ slot</small>
+          </div>
+
+          <button class="book-btn"
+            onclick="openBooking('Love Lounge','₹1,299')">
+            Book
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="venue-card" data-category="friends" data-name="Party Planet">
+
+      <div class="venue-image image-3">
+
+        <span class="badge">NEW</span>
+
+        <button class="wishlist" onclick="wishlist(event)">♡</button>
+
+        🥳
+
+      </div>
+
+      <div class="venue-info">
+
+        <h3>Party Planet</h3>
+
+        <div class="location">📍 HSR Layout, Bengaluru</div>
+
+        <div class="rating">⭐ <strong>4.7</strong> · 74 reviews</div>
+
+        <div class="venue-bottom">
+
+          <div class="venue-price">
+            ₹1,499 <small>/ slot</small>
+          </div>
+
+          <button class="book-btn"
+            onclick="openBooking('Party Planet','₹1,499')">
+            Book
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="venue-card" data-category="birthday" data-name="Birthday Bliss">
+
+      <div class="venue-image image-4">
+
+        <span class="badge">BIRTHDAY</span>
+
+        <button class="wishlist" onclick="wishlist(event)">♡</button>
+
+        🎈
+
+      </div>
+
+      <div class="venue-info">
+
+        <h3>Birthday Bliss</h3>
+
+        <div class="location">📍 Whitefield, Bengaluru</div>
+
+        <div class="rating">⭐ <strong>4.6</strong> · 51 reviews</div>
+
+        <div class="venue-bottom">
+
+          <div class="venue-price">
+            ₹899 <small>/ slot</small>
+          </div>
+
+          <button class="book-btn"
+            onclick="openBooking('Birthday Bliss','₹899')">
+            Book
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="venue-card" data-category="friends premium" data-name="The Social Room">
+
+      <div class="venue-image image-5">
+
+        <span class="badge">PREMIUM</span>
+
+        <button class="wishlist" onclick="wishlist(event)">♡</button>
+
+        🎮
+
+      </div>
+
+      <div class="venue-info">
+
+        <h3>The Social Room</h3>
+
+        <div class="location">📍 MG Road, Bengaluru</div>
+
+        <div class="rating">⭐ <strong>4.9</strong> · 103 reviews</div>
+
+        <div class="venue-bottom">
+
+          <div class="venue-price">
+            ₹1,799 <small>/ slot</small>
+          </div>
+
+          <button class="book-btn"
+            onclick="openBooking('The Social Room','₹1,799')">
+            Book
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="venue-card" data-category="couple premium" data-name="Private Paradise">
+
+      <div class="venue-image image-6">
+
+        <span class="badge">TOP RATED</span>
+
+        <button class="wishlist" onclick="wishlist(event)">♡</button>
+
+        ✨
+
+      </div>
+
+      <div class="venue-info">
+
+        <h3>Private Paradise</h3>
+
+        <div class="location">📍 JP Nagar, Bengaluru</div>
+
+        <div class="rating">⭐ <strong>4.9</strong> · 87 reviews</div>
+
+        <div class="venue-bottom">
+
+          <div class="venue-price">
+            ₹1,599 <small>/ slot</small>
+          </div>
+
+          <button class="book-btn"
+            onclick="openBooking('Private Paradise','₹1,599')">
+            Book
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- HOW IT WORKS -->
+
+<section class="section how" id="how">
+
+  <div class="section-head">
+
+    <div>
+      <h2>How SpotMyParty works</h2>
+      <p>Book your celebration space in just a few steps.</p>
+    </div>
+
+  </div>
+
+
+  <div class="steps">
+
+    <div class="step">
+      <div class="step-number">1</div>
+      <h3>Discover</h3>
+      <p>Search for celebration spaces based on your location and occasion.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-number">2</div>
+      <h3>Choose</h3>
+      <p>Compare photos, facilities, prices, ratings and available slots.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-number">3</div>
+      <h3>Book</h3>
+      <p>Select your date and time and confirm your celebration booking.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-number">4</div>
+      <h3>Celebrate</h3>
+      <p>Walk in, enjoy your private space and make amazing memories.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- OWNER CTA -->
+
+<section class="owner" id="owner">
+
+  <div>
+
+    <h2>Have a celebration space?</h2>
+
+    <p>
+      List your hall, private room or party space on SpotMyParty.
+      Reach customers, manage bookings and grow your business.
+    </p>
+
+  </div>
+
+  <button class="btn" onclick="openOwner()">
+    List Your Space →
+  </button>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="footer-grid">
+
+    <div class="footer-brand">
+
+      <div class="logo">
+        <div class="logo-icon">S</div>
+        <span style="color:#fff;">SpotMy<b>Party</b></span>
+      </div>
+
+      <p>
+        India's destination for discovering and booking unique
+        celebration spaces.
+      </p>
+
+    </div>
+
+
+    <div>
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#venues">Birthday rooms</a></li>
+        <li><a href="#venues">Couple rooms</a></li>
+        <li><a href="#venues">Party spaces</a></li>
+        <li><a href="#venues">Premium spaces</a></li>
+      </ul>
+    </div>
+
+
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li>About us</li>
+        <li>Contact</li>
+        <li>Careers</li>
+        <li>Help centre</li>
+      </ul>
+    </div>
+
+
+    <div>
+      <h4>For owners</h4>
+      <ul>
+        <li onclick="openOwner()">List your space</li>
+        <li>Owner login</li>
+        <li>Partner support</li>
+      </ul>
+    </div>
+
+  </div>
+
+
+  <div class="copyright">
+    © 2026 SpotMyParty. All rights reserved.
+  </div>
+
+</footer>
+
+
+<!-- BOOKING MODAL -->
+
+<div class="modal" id="bookingModal">
+
+  <div class="modal-box">
+
+    <button class="close" onclick="closeModal('bookingModal')">×</button>
+
+    <h2>Book your celebration</h2>
+
+    <p id="bookingVenue">Venue</p>
+
+
+    <div class="form-group">
+      <label>Choose date</label>
+      <input type="date" id="bookingDate">
+    </div>
+
+
+    <div class="form-group">
+      <label>Choose time</label>
+
+      <select id="bookingTime">
+
+        <option>10:00 AM - 12:00 PM</option>
+        <option>12:30 PM - 2:30 PM</option>
+        <option>3:00 PM - 5:00 PM</option>
+        <option>5:30 PM - 7:30 PM</option>
+        <option>8:00 PM - 10:00 PM</option>
+
+      </select>
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>Guests</label>
+
+      <select>
+
+        <option>1 - 5 guests</option>
+        <option>6 - 10 guests</option>
+        <option>11 - 20 guests</option>
+        <option>20+ guests</option>
+
+      </select>
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>Add-ons</label>
+
+      <select>
+
+        <option>No add-on</option>
+        <option>🎈 Decoration + ₹499</option>
+        <option>🎂 Cake + ₹699</option>
+        <option>📽️ Projector + ₹399</option>
+        <option>🎈 Decoration + 🎂 Cake + ₹999</option>
+
+      </select>
+
+    </div>
+
+
+    <button class="btn btn-primary full-btn" onclick="confirmBooking()">
+      Continue to Booking
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- LOGIN MODAL -->
+
+<div class="modal" id="loginModal">
+
+  <div class="modal-box">
+
+    <button class="close" onclick="closeModal('loginModal')">×</button>
+
+    <h2>Welcome back</h2>
+
+    <p>Login to manage your SpotMyParty bookings.</p>
+
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" placeholder="you@example.com">
+    </div>
+
+
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" placeholder="••••••••">
+    </div>
+
+
+    <button class="btn btn-primary full-btn" onclick="login()">
+      Login
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- SIGNUP MODAL -->
+
+<div class="modal" id="signupModal">
+
+  <div class="modal-box">
+
+    <button class="close" onclick="closeModal('signupModal')">×</button>
+
+    <h2>Create your account</h2>
+
+    <p>Join SpotMyParty and start planning celebrations.</p>
+
+
+    <div class="form-group">
+      <label>Full name</label>
+      <input type="text" placeholder="Your name">
+    </div>
+
+
+    <div class="form-group">
+      <label>Mobile number</label>
+      <input type="tel" placeholder="+91">
+    </div>
+
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" placeholder="you@example.com">
+    </div>
+
+
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" placeholder="Create password">
+    </div>
+
+
+    <button class="btn btn-primary full-btn" onclick="signup()">
+      Create Account
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- OWNER MODAL -->
+
+<div class="modal" id="ownerModal">
+
+  <div class="modal-box">
+
+    <button class="close" onclick="closeModal('ownerModal')">×</button>
+
+    <h2>List your space</h2>
+
+    <p>Tell us about your celebration venue.</p>
+
+
+    <div class="form-group">
+      <label>Owner name</label>
+      <input type="text" placeholder="Your name">
+    </div>
+
+
+    <div class="form-group">
+      <label>Business / venue name</label>
+      <input type="text" placeholder="Venue name">
+    </div>
+
+
+    <div class="form-group">
+      <label>Phone number</label>
+      <input type="tel" placeholder="+91">
+    </div>
+
+
+    <div class="form-group">
+      <label>City</label>
+
+      <select>
+        <option>Bengaluru</option>
+        <option>Mumbai</option>
+        <option>Delhi</option>
+        <option>Hyderabad</option>
+        <option>Chennai</option>
+        <option>Other</option>
+      </select>
+
+    </div>
+
+
+    <button class="btn btn-primary full-btn" onclick="ownerSubmit()">
+      Submit Venue
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+
+let selectedVenue = "";
+
+
+/* MODALS */
+
+function openModal(id){
+  document.getElementById(id).classList.add("show");
+}
+
+function closeModal(id){
+  document.getElementById(id).classList.remove("show");
+}
+
+function openLogin(){
+  openModal("loginModal");
+}
+
+function openSignup(){
+  openModal("signupModal");
+}
+
+function openOwner(){
+  openModal("ownerModal");
+}
+
+
+/* BOOKING */
+
+function openBooking(name,price){
+
+  selectedVenue = name;
+
+  document.getElementById("bookingVenue").innerHTML =
+    "<strong>" + name + "</strong> · " + price + " per slot";
+
+  document.getElementById("bookingModal").classList.add("show");
+}
+
+
+function confirmBooking(){
+
+  const date = document.getElementById("bookingDate").value;
+
+  if(!date){
+
+    showToast("Please select a date first.");
+
+    return;
+  }
+
+  closeModal("bookingModal");
+
+  showToast("Booking request started for " + selectedVenue + "!");
+
+}
+
+
+/* SEARCH */
+
+function searchVenues(){
+
+  const search =
+    document.getElementById("searchInput").value
+    .toLowerCase()
+    .trim();
+
+  const category =
+    document.getElementById("categorySelect").value;
+
+  const cards =
+    document.querySelectorAll(".venue-card");
+
+  let count = 0;
+
+  cards.forEach(card => {
+
+    const name =
+      card.dataset.name.toLowerCase();
+
+    const categories =
+      card.dataset.category;
+
+    const matchesSearch =
+      !search || name.includes(search);
+
+    const matchesCategory =
+      category === "all" ||
+      categories.includes(category);
+
+    if(matchesSearch && matchesCategory){
+
+      card.style.display = "";
+
+      count++;
+
+    }else{
+
+      card.style.display = "none";
+
+    }
+
+  });
+
+  document.getElementById("venues")
+    .scrollIntoView({behavior:"smooth"});
+
+  if(count === 0){
+
+    showToast("No matching spaces found.");
+
+  }else{
+
+    showToast(count + " spaces found.");
+
+  }
+
+}
+
+
+/* CATEGORY FILTER */
+
+function filterCategory(category){
+
+  document.getElementById("categorySelect").value =
+    category;
+
+  document.getElementById("searchInput").value = "";
+
+  searchVenues();
+
+}
+
+
+/* WISHLIST */
+
+function wishlist(event){
+
+  event.stopPropagation();
+
+  const button = event.currentTarget;
+
+  if(button.innerHTML === "♡"){
+
+    button.innerHTML = "♥";
+
+    showToast("Added to your wishlist.");
+
+  }else{
+
+    button.innerHTML = "♡";
+
+    showToast("Removed from wishlist.");
+
+  }
+
+}
+
+
+/* LOGIN */
+
+function login(){
+
+  closeModal("loginModal");
+
+  showToast("Demo login successful.");
+
+}
+
+
+/* SIGNUP */
+
+function signup(){
+
+  closeModal("signupModal");
+
+  showToast("Account created successfully.");
+
+}
+
+
+/* OWNER */
+
+function ownerSubmit(){
+
+  closeModal("ownerModal");
+
+  showToast("Thank you! Your venue request has been submitted.");
+
+}
+
+
+/* TOAST */
+
+function showToast(message){
+
+  const toast =
+    document.getElementById("toast");
+
+  toast.textContent = message;
+
+  toast.classList.add("show");
+
+  setTimeout(() => {
+
+    toast.classList.remove("show");
+
+  },3000);
+
+}
+
+
+/* CLOSE MODAL WHEN CLICKING OUTSIDE */
+
+document.querySelectorAll(".modal").forEach(modal => {
+
+  modal.addEventListener("click",function(event){
+
+    if(event.target === modal){
+
+      modal.classList.remove("show");
+
+    }
+
+  });
+
+});
+
+
+/* ENTER KEY SEARCH */
+
+document.getElementById("searchInput")
+  .addEventListener("keydown",function(event){
+
+    if(event.key === "Enter"){
+
+      searchVenues();
+
+    }
+
+  });
+
+
+/* SET MINIMUM BOOKING DATE */
+
+const today =
+  new Date().toISOString().split("T")[0];
+
+document.getElementById("bookingDate").min = today;
+
+</script>
+
+</body>
+                                                        </html>
