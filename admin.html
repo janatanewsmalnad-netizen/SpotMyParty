@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SpotMyParty Admin</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f6f7fb;
+  color:#17121f;
+}
+.header{
+  background:#17121f;
+  color:white;
+  padding:18px 22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{
+  font-size:22px;
+  font-weight:700;
+}
+.logo span{color:#ec4899}
+.admin{
+  font-size:14px;
+  color:#ddd;
+}
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:25px 18px;
+}
+h1{font-size:28px;margin-bottom:6px}
+.subtitle{color:#777;margin-bottom:25px}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin-bottom:25px;
+}
+.card{
+  background:white;
+  padding:20px;
+  border-radius:14px;
+  box-shadow:0 2px 10px #0000000d;
+}
+.card p{color:#777;font-size:14px;margin-bottom:10px}
+.card strong{font-size:28px}
+
+.orders{
+  background:white;
+  border-radius:14px;
+  padding:20px;
+  box-shadow:0 2px 10px #0000000d;
+}
+.orders h2{margin-bottom:18px}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+th,td{
+  padding:13px 10px;
+  border-bottom:1px solid #eee;
+  text-align:left;
+  font-size:14px;
+}
+th{color:#666}
+
+.status{
+  background:#fff4d6;
+  color:#9a6700;
+  padding:6px 10px;
+  border-radius:20px;
+  font-size:12px;
+}
+.empty{
+  text-align:center;
+  padding:45px 10px;
+  color:#777;
+}
+
+@media(max-width:700px){
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .orders{overflow-x:auto}
+  table{min-width:650px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="logo">Spot<span>My</span>Party</div>
+  <div class="admin">Admin Dashboard</div>
+</header>
+
+<main class="container">
+
+<h1>Dashboard</h1>
+<p class="subtitle">Manage your SpotMyParty bookings</p>
+
+<section class="cards">
+
+<div class="card">
+<p>Total Orders</p>
+<strong>0</strong>
+</div>
+
+<div class="card">
+<p>Pending Orders</p>
+<strong>0</strong>
+</div>
+
+<div class="card">
+<p>Confirmed Orders</p>
+<strong>0</strong>
+</div>
+
+<div class="card">
+<p>Total Revenue</p>
+<strong>₹0</strong>
+</div>
+
+</section>
+
+<section class="orders">
+
+<h2>Recent Orders</h2>
+
+<div class="empty">
+No orders received yet.
+<br><br>
+Customer bookings will appear here after the booking system is connected.
+</div>
+
+</section>
+
+</main>
+
+</body>
+</html>
