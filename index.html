@@ -1791,5 +1791,23 @@ document.getElementById("bookingDate").min = today;
 
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+const SUPABASE_URL = "https://cygledutmshkcpomefsg.supabase.co/rest/v1/";
+const SUPABASE_PUBLISHABLE_KEY ="sb_publishable_5bqDnDdkbkVyDgBCzKhHBg_6PlsVt5g";
+
+const { createClient } = supabase;
+
+const supabaseClient = createClient(
+  SUPABASE_URL,
+  SUPABASE_PUBLISHABLE_KEY
+);
+
+console.log("SpotMyParty connected to Supabase");
+</script>
+
+
+
 </body>
                                                         </html>
